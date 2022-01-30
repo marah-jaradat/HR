@@ -1,0 +1,25 @@
+#headst {
+  background-color: #576e7e;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#naav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#naav a {
+  text-decoration: none;
+  text-align: right;
+  align-items: center;
+  font-weight: bolder;
+  color: white;
+  text-transform: capitalize;
+}
+
+#foot {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  text-decoration: none;
+}
