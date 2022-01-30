@@ -137,8 +137,8 @@ function createSubmit(event) {
 
   let newEmployee = new Employee(name, images);
   newEmployee.randomSalary();
-  // newEmployee.randomID();
-  // // renderAll();
-  // newEmployee.render();
-  // // console.log(dep);
+  newEmployee.randomID();
+  // renderAll();
+  newEmployee.render();
+  // console.log(dep);
 }
