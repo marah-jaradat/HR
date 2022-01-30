@@ -9,7 +9,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <title>Document</title>
-
+    <link rel="stylesheet" href="./style.css" />
     <style>
       .fa-facebook {
         background: #3b5998;
@@ -26,22 +26,58 @@
     </style>
   </head>
   <body>
-    <header>
+    <header id="headst">
       <section>
         <h1>HR-management-system</h1>
+        <div id="headerParent">
+          <!-- can't write  -->
+        </div>
       </section>
 
       <section>
-        <nav>
-          <a href="/accounting.html">accounting</a>
-          <a href="">Employee</a>
+        <nav id="naav">
+          <a href="/accounting.html">Accounting</a>
+          <a href="/indheader2ex.html">Employee</a>
         </nav>
       </section>
-      <input type="text" placeholder="Search.." />
     </header>
-    <main></main>
+    <main id="main">
+      <form id="form">
+        <fieldset>
+          <legend>Employee Card</legend>
+          <label for="employeeName">Full name: </label>
+          <input id="employeeName" type="text" name="employeeName" required />
+          <br />
 
-    <footer>
+          <label for="depForm">Department: </label>
+          <select name="depForm" id="depForm" form="depForm">
+            <option value="administration">Administration</option>
+            <option value="marketing">Marketing</option>
+            <option value="development">Development</option>
+            <option value="finance">Finance</option>
+          </select>
+          <br />
+
+          <label for="levForm">Level: </label>
+          <select name="levForm" id="levForm" form="levForm">
+            <option value="junior">Junior</option>
+            <option value="mid-Senior">Mid-Senior</option>
+            <option value="senior">Senior</option>
+          </select>
+          <br />
+
+          <label for="images">image: </label>
+          <input id="images" type="text" name="images" />
+          <br />
+
+          <button type="submit" id="btn">Add An Employee</button>
+
+          <div id="myEmploy"></div>
+        </fieldset>
+      </form>
+    </main>
+
+    <footer id="foot">
       <section>
         <h4>&copy;The copyright reserved for JS class</h4>
       </section>
