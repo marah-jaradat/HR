@@ -6,6 +6,7 @@ let department = ["administration", "marketing", "development", "finance"];
 let level = ["Junior", "Mid-Senior", "Senior"];
 let allEmployees = [];
 
+// Employee.allEmployees = [];
 // Define:
 
 let headerParent = document.getElementById("headerParent");
@@ -17,7 +18,6 @@ let myEmployDiv = document.getElementById("myEmploy");
 let main = document.getElementById("main");
 let myForm = document.getElementById("form");
 let myBtn = document.getElementById("btn");
-
 // My Constructor:
 
 function Employee(fullName, department, level, img) {
@@ -81,6 +81,34 @@ function getRndInteger(min, max) {
   return Math.ceil(Math.random() * (max - min + 1)) + min;
 }
 
+function saveToLocal() {
+  let becomeSrting = JSON.stringify(allEmployees);
+
+  localStorage.setItem("employee", becomeSrting);
+}
+
+function getData() {
+  let data = localStorage.getItem(parsedData);
+  let parsedData = JSON.parse(data);
+
+  for (let i = 0; i < parsedData.length; i++) {
+    new Employee(parsedData[i]);
+  }
+  parsedData.randomSalary();
+  parsedData.randomID();
+  parsedData.render();
+
+  //   new Employee(
+  //     parsedData[i].employeeID,
+  //     parsedData.fullName,
+  //     parsedData.department,
+  //     parsedData.level,
+  //     parsedData.img,
+  //     parsedData.salary
+  //   );
+  // }
+}
+
 // Methods:
 
 Employee.prototype.randomSalary = function (min, max) {
@@ -140,5 +168,6 @@ function createSubmit(event) {
   newEmployee.randomID();
   // renderAll();
   newEmployee.render();
-  // console.log(dep);
+  saveToLocal();
 }
+getData();
