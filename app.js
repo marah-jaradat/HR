@@ -84,30 +84,35 @@ function getRndInteger(min, max) {
 function saveToLocal() {
   let becomeSrting = JSON.stringify(allEmployees);
 
-  localStorage.setItem("employee", becomeSrting);
+  localStorage.setItem("Employee", becomeSrting);
 }
 
 function getData() {
-  let data = localStorage.getItem(parsedData);
+  let data = localStorage.getItem("Employee");
   let parsedData = JSON.parse(data);
-
-  for (let i = 0; i < parsedData.length; i++) {
-    new Employee(parsedData[i]);
+  if (parsedData != null) {
+    allEmployees = [];
+    console.log(parsedData);
+    for (let i = 0; i < parsedData.length; i++) {
+      console.log(parsedData[i]);
+      new Employee(
+        parsedData[i].employeeID,
+        parsedData[i].fullName,
+        parsedData[i].department,
+        parsedData[i].level,
+        parsedData[i].img
+      );
+    }
   }
-  parsedData.randomSalary();
-  parsedData.randomID();
-  parsedData.render();
-
-  //   new Employee(
-  //     parsedData[i].employeeID,
-  //     parsedData.fullName,
-  //     parsedData.department,
-  //     parsedData.level,
-  //     parsedData.img,
-  //     parsedData.salary
-  //   );
-  // }
+  renderAll();
 }
+
+// for (let i = 0; i < parsedData.length; i++) {
+//   new Employee(parsedData[i]);
+// }
+// parsedData.randomSalary();
+// parsedData.randomID();
+// parsedData.render();
 
 // Methods:
 
@@ -159,15 +164,20 @@ function createSubmit(event) {
   event.preventDefault();
   // console.log(event);
   let name = event.target.employeeName.value;
-  // let dep = event.target.value;
-  // let lev = event.target.levForm.value;
+  let dep = event.target.value;
+  let lev = event.target.levForm.value;
   let images = event.target.images.value;
 
   let newEmployee = new Employee(name, images);
   newEmployee.randomSalary();
   newEmployee.randomID();
   // renderAll();
-  newEmployee.render();
   saveToLocal();
+  newEmployee.render();
+}
+function renderAll() {
+  for (let i = 0; i < allEmployees.length; i++) {
+    allEmployees[i].render();
+  }
 }
 getData();
