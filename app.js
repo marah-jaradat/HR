@@ -164,9 +164,13 @@ function createSubmit(event) {
   event.preventDefault();
   // console.log(event);
   let name = event.target.employeeName.value;
-  let dep = event.target.value;
-  let lev = event.target.levForm.value;
-  let images = event.target.images.value;
+  // let dep = event.target.value;
+  let dep = document.getElementById("depForm");
+  let depName = dep.value;
+  // let dep = event.target.options[event.target.selectedIndex].text;
+  console.log(depName);
+  // let lev = event.target.levForm.value;
+  // let images = event.target.images.value;
 
   let newEmployee = new Employee(name, images);
   newEmployee.randomSalary();
@@ -175,9 +179,9 @@ function createSubmit(event) {
   saveToLocal();
   newEmployee.render();
 }
-function renderAll() {
-  for (let i = 0; i < allEmployees.length; i++) {
-    allEmployees[i].render();
-  }
-}
-getData();
+// function renderAll() {
+//   for (let i = 0; i < Employee.allEmployees.length; i++) {
+//     Employee.allEmployees[i].render();
+//   }
+// }
+// getData();
