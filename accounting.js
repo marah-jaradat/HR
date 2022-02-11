@@ -27,3 +27,8 @@ Employee.prototype.renderTable = function () {
 function renderTa() {
   for (let index = 0; index < allEmployees.length; index++) {}
 }
+
+function count(empl) {
+  let counted = employ.split("");
+  return `${counted[2]}/${counted[5]}`;
+}

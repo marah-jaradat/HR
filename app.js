@@ -17,7 +17,8 @@ let headerParent = document.getElementById("headerParent");
 let myEmployDiv = document.getElementById("myEmploy");
 let main = document.getElementById("main");
 let myForm = document.getElementById("form");
-let myBtn = document.getElementById("btn");
+// let myBtn = document.getElementById("btn");
+
 // My Constructor:
 
 function Employee(fullName, department, level, img) {
@@ -90,9 +91,10 @@ function saveToLocal() {
 function getData() {
   let data = localStorage.getItem("Employee");
   let parsedData = JSON.parse(data);
+  // console.log(data);
   if (parsedData != null) {
     allEmployees = [];
-    console.log(parsedData);
+    // console.log(parsedData);
     for (let i = 0; i < parsedData.length; i++) {
       console.log(parsedData[i]);
       new Employee(
@@ -101,6 +103,7 @@ function getData() {
         parsedData[i].department,
         parsedData[i].level,
         parsedData[i].img
+        // parsedData[i].salary
       );
     }
   }
@@ -142,35 +145,43 @@ for (let i = 0; i < allEmployees.length; i++) {
 }
 
 // check to assign the salary
-// function renderAll() {
-for (let i = 0; i < allEmployees.length; i++) {
-  if (allEmployees[i].level === "Junior") {
-    allEmployees[i].randomSalary(500, 1000);
+function renderAll() {
+  for (let i = 0; i < allEmployees.length; i++) {
+    if (allEmployees[i].level === "Junior") {
+      allEmployees[i].randomSalary(500, 1000);
+      // console.log(allEmployees[i]);
+    } else if (allEmployees[i].level === "Mid-Senior") {
+      allEmployees[i].randomSalary(1000, 1500);
+      // console.log(allEmployees[i]);
+    } else if (allEmployees[i].level === "Senior") {
+      allEmployees[i].randomSalary(1500, 2000);
+    }
     // console.log(allEmployees[i]);
-  } else if (allEmployees[i].level === "Mid-Senior") {
-    allEmployees[i].randomSalary(1000, 1500);
-    // console.log(allEmployees[i]);
-  } else if (allEmployees[i].level === "Senior") {
-    allEmployees[i].randomSalary(1500, 2000);
   }
-  // console.log(allEmployees[i]);
 }
-// }
-// renderAll();
+renderAll();
 
 // Adding Events:
+
 myForm.addEventListener("submit", createSubmit);
+
 function createSubmit(event) {
   event.preventDefault();
-  // console.log(event);
+  console.log(event);
   let name = event.target.employeeName.value;
-  let dep = event.target.value;
-  let lev = event.target.levForm.value;
-  let images = event.target.images.value;
+  let dep = document.getElementById("depForm");
+  let depName = dep.value;
+  console.log(depName);
+  let lev = document.getElementById("levForm");
+  let levelName = lev.value;
+  console.log(levelName);
+  let immg = event.target.images.baseURI;
+  console.log(immg);
+  // let ranId = allEmployees.randomID();
+  let newEmployee = new Employee(name, depName, levelName, immg);
+  // newEmployee.randomID();
+  // newEmployee.randomSalary();
 
-  let newEmployee = new Employee(name, images);
-  newEmployee.randomSalary();
-  newEmployee.randomID();
   // renderAll();
   saveToLocal();
   newEmployee.render();
