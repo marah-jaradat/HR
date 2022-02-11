@@ -50,3 +50,8 @@ function renderTa() {
     Employee.allEmployees[i].renderTable;
   }
 }
+
+function count(empl) {
+  let counted = employ.split("");
+  return `${counted[2]}/${counted[5]}`;
+}
