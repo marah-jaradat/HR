@@ -169,6 +169,7 @@ function createSubmit(event) {
   event.preventDefault();
   console.log(event);
   let name = event.target.employeeName.value;
+
   let dep = document.getElementById("depForm");
   let depName = dep.value;
   console.log(depName);
@@ -182,13 +183,14 @@ function createSubmit(event) {
   // newEmployee.randomID();
   // newEmployee.randomSalary();
 
+
   // renderAll();
   saveToLocal();
   newEmployee.render();
 }
-function renderAll() {
-  for (let i = 0; i < allEmployees.length; i++) {
-    allEmployees[i].render();
-  }
-}
-getData();
+// function renderAll() {
+//   for (let i = 0; i < Employee.allEmployees.length; i++) {
+//     Employee.allEmployees[i].render();
+//   }
+// }
+// getData();

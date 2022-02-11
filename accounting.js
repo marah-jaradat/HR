@@ -1,6 +1,6 @@
 let parent = Document.getElementById("parent");
 
-Employee.prototype.renderTable = function () {
+function renderTab() {
   let table = document.createElement("table");
   parent.appendChild(table);
 
@@ -22,10 +22,33 @@ Employee.prototype.renderTable = function () {
   let thFour = document.createElement("th");
   tr.appendChild(thFour);
   thFour.textContent = "Total salary";
+}
+
+Employee.prototype.renderTable = function () {
+  let tr = document.createElement("tr");
+  table.appendChild(tr);
+
+  let thOne = document.createElement("td");
+  tdOne.textContent = this.department;
+  tr.appendChild(tdOne);
+
+  let tdTwo = document.createElement("td");
+  tdTwo.textContent = i;
+  tr.appendChild(tdTwo);
+
+  let tdThree = document.createElement("td");
+  tdThree.textContent = this.randomSalary;
+  tr.appendChild(tdThree);
+
+  let tdFour = document.createElement("td");
+  tdFour.textContent = this.salary;
+  tr.appendChild(tdFour);
 };
 
 function renderTa() {
-  for (let index = 0; index < allEmployees.length; index++) {}
+  for (let index = 0; index < Employee.allEmployees.length; index++) {
+    Employee.allEmployees[i].renderTable;
+  }
 }
 
 function count(empl) {
